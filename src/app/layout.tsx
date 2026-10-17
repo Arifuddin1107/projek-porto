@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Outfit, Inter } from "next/font/google";
 import "./globals.css";
 import Providers from "./providers";
-import CustomCursor from "@/components/shared/custom-cursor";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -67,7 +66,6 @@ export default function RootLayout({
     <html lang="id" className={`${outfit.variable} ${inter.variable}`}>
       <body className="antialiased">
         <Providers>
-          <CustomCursor />
           {children}
         </Providers>
       </body>

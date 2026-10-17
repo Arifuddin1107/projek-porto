@@ -14,12 +14,8 @@ export default function Home() {
   return (
     <div className="relative min-h-screen w-full bg-background overflow-hidden selection:bg-primary/30 selection:text-white">
       
-      {/* Background Animated Gradient Mesh Spheres */}
-      <div className="mesh-gradient-bg">
-        <div className="mesh-gradient-sphere mesh-gradient-sphere-1" />
-        <div className="mesh-gradient-sphere mesh-gradient-sphere-2" />
-        <div className="mesh-gradient-sphere mesh-gradient-sphere-3" />
-      </div>
+      {/* Ambient Background Glow */}
+      <div className="mesh-gradient-bg" />
 
       {/* Main floating navigation */}
       <Navbar />

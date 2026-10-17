@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { Download, ArrowRight, Sparkles } from "lucide-react";
 import useTypingEffect from "@/hooks/use-typing-effect";
 import useMagnetic from "@/hooks/use-magnetic";
-import ParticleBackground from "@/components/shared/particle-background";
 
 const professions = [
   "Full-Stack Web Developer",
@@ -25,9 +24,6 @@ export default function Hero() {
       id="home"
       className="relative w-full min-h-screen flex items-center justify-center bg-background overflow-hidden px-6 pt-20"
     >
-      {/* 3D Particle Canvas Background */}
-      <ParticleBackground />
-
       {/* Cyber overlay grid */}
       <div className="cyber-grid" />
 

@@ -130,39 +130,11 @@ const projects: Project[] = [
   },
 ];
 
-// Project Card Component with 3D Tilt Effect
+// Project Card Component with Fast, Native CSS Hover Transitions
 function ProjectCard({ project, onClick }: { project: Project; onClick: () => void }) {
-  const cardRef = useRef<HTMLDivElement | null>(null);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const card = cardRef.current;
-    if (!card) return;
-
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    const xc = rect.width / 2;
-    const yc = rect.height / 2;
-
-    const angleX = (yc - y) / 15; // Limit tilt angle X
-    const angleY = (x - xc) / 15; // Limit tilt angle Y
-
-    card.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) scale3d(1.02, 1.02, 1.02)`;
-  };
-
-  const handleMouseLeave = () => {
-    const card = cardRef.current;
-    if (!card) return;
-    card.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)";
-  };
-
   return (
     <div
-      ref={cardRef}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      className="glass-card overflow-hidden border-white/5 hover:border-primary/30 transition-all duration-300 ease-out cursor-pointer group flex flex-col h-full"
+      className="glass-card overflow-hidden border-white/5 hover:border-primary/40 hover:-translate-y-1.5 transition-all duration-300 ease-out cursor-pointer group flex flex-col h-full hover:shadow-xl hover:shadow-primary/10"
       onClick={onClick}
     >
       {/* Thumbnail */}
