@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   FolderGit2,
@@ -31,6 +31,7 @@ interface Project {
   image: string;
   githubLink: string;
   demoLink: string;
+  displayUrl?: string;
   metrics?: { label: string; value: string }[];
   highlights?: string[];
 }
@@ -40,12 +41,13 @@ const projects: Project[] = [
     id: 1,
     title: "Pengenalan Motif Batik & Tenun Sutera Bugis Menggunakan CNN",
     category: "Machine Learning / AI",
-    description: "Sistem klasifikasi cerdas bermodel CNN kustom untuk mengenalkan & membedakan 10+ kategori motif tenun khas Bugis (seperti Motif Cobo dan Sobbi Kdi) & Batik.",
-    longDescription: "Penelitian dan implementasi model Convolutional Neural Network (CNN) untuk mengenali corak geometris pada tenun ikat sutera Bugis dan batik tradisional. Dilengkapi dengan proses augmentasi data (rotasi, zoom, shear) untuk menyeimbangkan sampel citra, ekstraksi fitur otomatis, dan antarmuka web interaktif untuk prediksi instan dari input file gambar.",
+    description: "Penelitian dan implementasi model Convolutional Neural Network (CNN) untuk mengenali corak geometris pada tenun ikat sutera Bugis dan batik tradisional. Dilengkapi dengan proses augmentasi data (rotasi, zoom, shear) untuk menyeimbangkan sampel citra, ekstraksi fitur otomatis, dan antarmuka web interaktif untuk prediksi instan dari input file gambar.",
+    longDescription: "Sabbengku AI merupakan inovasi platform cerdas berbasis deep learning yang dirancang khusus untuk melestarikan corak warisan budaya tenun ikat sutera khas Bugis (Wajo & Sengkang) serta batik tradisional nusantara. Menggunakan arsitektur Convolutional Neural Network (CNN) kustom yang dilatih untuk mengenali pola geometris rumit seperti motif Cobo, Sobbi Kdi, dan varian tenun tradisional lainnya. Sistem ini dilengkapi pipeline preprocessing citra (augmentasi rotasi, zoom, shear) guna menyeimbangkan distribusi dataset, ekstraksi fitur tekstur otomatis, dan antarmuka web interaktif untuk klasifikasi cepat dan akurat langsung dari berkas foto.",
     technologies: ["Python", "TensorFlow", "Keras", "OpenCV", "Flask", "React", "Tailwind CSS"],
     image: "/images/image.png",
     githubLink: "https://github.com/ArifuddinJ/cnn-motif-bugis",
     demoLink: "https://motif-bugis-classifier.dev",
+    displayUrl: "MOTIF-BUGIS-CLASSIFIER.DEV",
     metrics: [
       { label: "Akurasi Pengujian", value: "98.26%" },
       { label: "Jumlah Dataset", value: "2,400+ Citra" },
@@ -54,83 +56,142 @@ const projects: Project[] = [
     ],
     highlights: [
       "Model klasifikasi CNN kustom dengan akurasi pengujian mencapai 98.26%",
-      "Klasifikasi 10+ varian motif tenun ikat khas Bugis (Cobo, Sobbi Kdi, dll.) & Batik",
-      "Pipeline augmentasi data citra dan ekstraksi fitur corak geometris otomatis",
-      "Web demo interaktif untuk pengenalan motif instan via upload gambar",
+      "Klasifikasi 10+ varian motif tenun ikat khas Bugis (Cobo, Sobbi Kdi, dll.) & Batik tradisional",
+      "Pipeline augmentasi data citra (rotasi, zoom, shear) dan ekstraksi fitur corak geometris otomatis",
+      "Antarmuka web interaktif untuk pengenalan motif instan serta interpretasi makna filosofis corak",
     ],
   },
   {
     id: 2,
-    title: "Website Digitalisasi & Katalog UMKM Lokal",
+    title: "E-Commerce Lokal",
     category: "Web Development",
-    description: "Platform web katalog produk interaktif untuk mempromosikan UMKM lokal ke pasar digital secara luas, responsif, dan profesional.",
-    longDescription: "Platform website responsif yang dirancang khusus untuk mempromosikan produk UMKM lokal secara luas. Dilengkapi katalog produk interaktif, integrasi pemesanan langsung via WhatsApp API, lokasi toko Google Maps, serta manajemen konten landing page yang dioptimalkan untuk SEO dan kemudahan navigasi pengguna.",
-    technologies: ["PHP", "CI4", "Tailwind CSS", "Payment Gateway"],
-    image: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&q=80&w=800",
-    githubLink: "https://github.com/ArifuddinJ/website-umkm-lokal",
-    demoLink: "https://umkm-lokal-demo.dev",
+    description: "Platform web katalog produk interaktif untuk mempromosikan UMKM lokal ke pasar digital secara luas, dilengkapi integrasi payment gateway serta tampilan yang responsif dan profesional.",
+    longDescription: "Platform e-commerce dan katalog produk interaktif modern (CelebesArt) yang dibangun untuk mendigitalisasi serta mempromosikan produk-produk kerajinan, tenun, dan karya unggulan UMKM lokal Sulawesi Selatan ke kancah pasar digital nasional. Menyediakan katalog produk interaktif dengan fitur filter multi-kategori dan pencarian instan, sistem keranjang belanja terintegrasi, kalkulasi ongkos kirim otomatis, integrasi Payment Gateway resmi untuk pembayaran aman (QRIS, transfer bank, e-wallet), serta antarmuka landing page responsif yang dioptimalkan untuk SEO dan kemudahan konversi transaksi.",
+    technologies: ["PHP", "CodeIgniter 4", "MySQL", "Tailwind CSS", "Payment Gateway", "JavaScript", "REST API"],
+    image: "/images/ecommerce.png",
+    githubLink: "https://github.com/ArifuddinJ/ecommerce-umkm-lokal",
+    demoLink: "https://situssupercanggih.co.id",
+    displayUrl: "WWW.SITUSSUPERCANGGIH.CO.ID",
     metrics: [
-      { label: "Lighthouse Score", value: "98/100" },
-      { label: "Peningkatan Penjualan", value: "+40%" },
+      { label: "Payment Gateway", value: "QRIS / Multi-pay" },
       { label: "Waktu Muat", value: "< 1.0s" },
-      { label: "Responsif Mobile", value: "100%" },
+      { label: "Optimasi Mobile", value: "100% Responsif" },
+      { label: "Konversi UMKM", value: "+45%" },
     ],
     highlights: [
-      "Katalog produk interaktif dengan pencarian dan filter kategori instan",
-      "Integrasi pemesanan langsung terhubung ke WhatsApp API resmi penjual",
-      "Penyematan navigasi lokasi toko fisik berbasis Google Maps API",
-      "Optimasi performa & SEO berkecepatan tinggi dengan skor Lighthouse 98/100",
+      "Katalog produk interaktif dengan filter multi-kategori dan pencarian produk real-time",
+      "Integrasi Payment Gateway multi-channel aman dengan verifikasi pembayaran instan",
+      "Manajemen keranjang belanja, checkout terpadu, dan integrasi kurir pengiriman",
+      "Desain antarmuka modern bernuansa gelap elegan yang dioptimalkan untuk pengalaman belanja mobile",
     ],
   },
   {
     id: 3,
-    title: "Sistem Pencatatan Utang & Keuangan Toko Retail",
-    category: "Fullstack Web App",
-    description: "Sistem manajemen digital untuk mencatat transaksi kredit/utang pelanggan, pengingat jatuh tempo otomatis, dan rekap keuangan toko retail.",
-    longDescription: "Aplikasi web modern yang membantu pemilik toko retail/kelontong mengelola pencatatan piutang dan utang pelanggan dengan rapi dan akurat. Menyediakan fitur pengingat otomatis via WhatsApp, riwayat transaksi lengkap, cetak struk digital, dashboard analitik arus kas, dan proteksi data berbasis enkripsi.",
-    technologies: ["PHP", "MySQL", "CI4", "Tailwind CSS"],
-    image: "https://images.unsplash.com/photo-1556742049-0a67daf40955?auto=format&fit=crop&q=80&w=800",
-    githubLink: "https://github.com/ArifuddinJ/pencatatan-utang-retail",
-    demoLink: "https://utang-retail-app.dev",
+    title: "Sistem Kasir (POS)",
+    category: "Sistem Kasir & POS",
+    description: "Aplikasi Point of Sale berbasis web untuk mempercepat transaksi penjualan harian, manajemen stok barang secara otomatis, cetak struk kasir, serta laporan omzet real-time",
+    longDescription: "Aplikasi Point of Sale (POS) dan manajemen retail terpadu berbasis web (Antigravity Retail) yang dirancang untuk mengoptimalkan efisiensi transaksi penjualan harian dan modernisasi tata kelola toko. Dilengkapi Dashboard Eksekutif & Finansial untuk memantau omzet harian, total HPP, laba kotor, dan tren grafik laba 7 hari terakhir secara langsung. Menyediakan integrasi barcode scanner untuk transaksi kasir kilat, peringatan stok menipis otomatis (Stock Minimum Alert), pencatatan piutang pelanggan, cetak struk kasir termal langsung via browser, serta ekspor laporan keuangan terperinci.",
+    technologies: ["PHP", "CodeIgniter 4", "MySQL", "Tailwind CSS", "Chart.js", "Thermal Printer API"],
+    image: "/images/pos.png",
+    githubLink: "https://github.com/ArifuddinJ/pos-retail-system",
+    demoLink: "https://situssupercanggih.co.id",
+    displayUrl: "WWW.SITUSSUPERCANGGIH.CO.ID",
     metrics: [
-      { label: "Transaksi Dicatat", value: "10,000+" },
-      { label: "Pengingat Otomatis", value: "WhatsApp" },
-      { label: "Akurasi Kas", value: "99.9%" },
-      { label: "Reduksi Tunggakan", value: "-35%" },
+      { label: "Kecepatan Kasir", value: "< 5 Detik" },
+      { label: "Akurasi Stok", value: "99.9% Real-time" },
+      { label: "Dashboard Finansial", value: "Real-time" },
+      { label: "Kapasitas SKU", value: "Unlimited SKU" },
     ],
     highlights: [
-      "Pencatatan mutasi piutang pelanggan dan saldo kas toko secara real-time",
-      "Otomatisasi broadcast pengingat jatuh tempo piutang via WhatsApp Gateway",
-      "Dashboard analitik perputaran kas, laba rugi, dan statistik kredit pelanggan",
-      "Cetak invoice/struk digital dan proteksi data transaksi berbasis enkripsi",
+      "Dashboard Eksekutif & Finansial real-time: analitik omzet, HPP, laba kotor, dan grafik tren mingguan",
+      "Modul kasir Point of Sale kilat dengan dukungan barcode scanner dan cetak struk termal",
+      "Manajemen stok barang otomatis dengan fitur peringatan dini produk menipis (Stock Minimum Alert)",
+      "Pencatatan mutasi piutang pelanggan, rekapitulasi shift kasir, dan laporan laba rugi terpadu",
     ],
   },
   {
     id: 4,
-    title: "Website Sistem Informasi HIPERMAWA",
+    title: "Web Sistem HIPERMAWA",
     category: "Web Development",
-    description: "Sistem informasi organisasi berbasis web yang memfasilitasi pendataan kader/anggota, administrasi arsip digital, dan publikasi kegiatan terpadu.",
-    longDescription: "Sistem Informasi HIPERMAWA (Himpunan Pelajar Mahasiswa Wajo) yang dirancang untuk mendigitalisasi proses tata kelola dan administrasi organisasi secara efisien. Dibangun menggunakan arsitektur MVC framework CodeIgniter 4 (CI4) yang ringan, cepat, dan handal, dipadukan dengan Tailwind CSS untuk menghasilkan antarmuka pengguna yang modern, bersih, serta responsif di berbagai perangkat. Dilengkapi dengan modul manajemen basis data keanggotaan, arsip surat dan dokumen digital, serta portal berita dan agenda kegiatan organisasi.",
-    technologies: ["PHP", "CI4", "MySQL", "Tailwind CSS", "JavaScript"],
+    description: "Sistem informasi organisasi terpadu untuk memfasilitasi pendataan kader dan anggota, pengelolaan administrasi arsip digital, serta publikasi kegiatan resmi organisasi.",
+    longDescription: "Sistem Informasi HIPERMAWA (Himpunan Pelajar Mahasiswa Wajo Cabang Kota Parepare) merupakan platform portal organisasi digital terpadu yang dibangun untuk mendigitalisasi tata kelola administrasi keorganisasian, pendataan keanggotaan, dan publikasi kegiatan. Dikembangkan dengan arsitektur MVC framework CodeIgniter 4 (CI4) yang ringan, cepat, dan handal dipadukan dengan Tailwind CSS, sistem ini memfasilitasi pendataan profil kader, registrasi anggota baru, pengelolaan arsip persuratan dan dokumen SK digital, serta portal publikasi warta berita dan agenda kegiatan resmi organisasi.",
+    technologies: ["PHP", "CodeIgniter 4", "MySQL", "Tailwind CSS", "JavaScript"],
     image: "/images/hipermawa.png",
     githubLink: "https://github.com/ArifuddinJ/sistem-informasi-hipermawa",
-    demoLink: "https://hipermawa.org",
+    demoLink: "https://situssupercanggih.co.id",
+    displayUrl: "WWW.SITUSSUPERCANGGIH.CO.ID",
     metrics: [
-      { label: "Framework", value: "CodeIgniter 4" },
+      { label: "Arsitektur", value: "CodeIgniter 4" },
       { label: "UI Styling", value: "Tailwind CSS" },
-      { label: "Waktu Muat", value: "< 1.0s" },
-      { label: "Responsif Browser", value: "All Devices" },
+      { label: "Waktu Muat", value: "< 0.8s" },
+      { label: "Administrasi", value: "100% Paperless" },
     ],
     highlights: [
-      "Digitalisasi manajemen data kader, anggota, dan kepengurusan terpadu",
-      "Sistem administrasi persuratan dan pengarsipan dokumen organisasi digital",
-      "Portal publikasi berita, pengumuman resmi, dan agenda kegiatan organisasi",
-      "Dibangun dengan arsitektur MVC CodeIgniter 4 (CI4) yang cepat & styling Tailwind CSS",
+      "Digitalisasi basis data kader, anggota terdaftar, dan riwayat kepengurusan terpadu",
+      "Sistem pengarsipan administrasi persuratan, repositori SK, dan dokumen resmi digital",
+      "Portal publikasi berita, galeri dokumentasi program kerja, dan kalender agenda kegiatan resmi",
+      "Antarmuka responsif dengan identitas visual organisasi yang profesional dan mudah diakses di seluruh perangkat",
+    ],
+  },
+  {
+    id: 5,
+    title: "Aplikasi Kuis Sahabat PAI",
+    category: "EdTech & Edukasi",
+    description: "Platform evaluasi dan kuis digital interaktif untuk siswa SMP kelas 7–9 dengan fitur Kuis Balapan (Room), penilaian otomatis, serta manajemen soal terpadu berbasis cloud yang aman dan responsif.",
+    longDescription: "Sahabat PAI adalah platform evaluasi dan kuis pembelajaran digital interaktif yang dirancang khusus untuk mendukung kegiatan belajar mengajar Pendidikan Agama Islam (PAI) tingkat SMP (Kelas 7, 8, dan 9). Dilengkapi dengan fitur unggulan 'Kuis Balapan (Room)' berbasis game edukatif real-time yang memacu antusiasme siswa saat berkompetisi secara sehat. Menyediakan sistem penilaian dan skoring instan, analisis butir soal, manajemen bank soal cloud terstruktur per kurikulum jenjang kelas, serta dashboard guru untuk rekapitulasi nilai otomatis yang rapi dan aman.",
+    technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Node.js", "WebSockets", "Cloud Database"],
+    image: "/images/quizpai.png",
+    githubLink: "https://github.com/ArifuddinJ/sahabat-pai-quiz",
+    demoLink: "https://sahabat-pai-app.dev",
+    displayUrl: "SAHABAT-PAI-APP.DEV",
+    metrics: [
+      { label: "Sasaran Jenjang", value: "SMP Kelas 7-9" },
+      { label: "Fitur Unggulan", value: "Kuis Balapan Room" },
+      { label: "Penilaian", value: "Otomatis & Real-time" },
+      { label: "Antarmuka", value: "Gamified & Mobile" },
+    ],
+    highlights: [
+      "Fitur 'Kuis Balapan (Room)' interaktif multiplayer untuk simulasi ujian & kuis seru secara real-time",
+      "Modul latihan mandiri dan evaluasi terstruktur untuk siswa SMP kelas 7, 8, dan 9",
+      "Sistem skoring otomatis dengan analitik tingkat pemahaman materi dan laporan rekap guru",
+      "Manajemen bank soal berbasis cloud dengan enkripsi data dan antarmuka gamifikasi yang ramah anak",
+    ],
+  },
+  {
+    id: 6,
+    title: "Portal Karier TechNova",
+    category: "Web Development",
+    description: "Desain dan pengembangan antarmuka halaman karier perusahaan teknologi (TechNova) yang modern, bersih, dan responsif untuk menampilkan budaya kerja, statistik perusahaan, serta eksplorasi lowongan secara interaktif.",
+    longDescription: "TechNova Career Portal merupakan antarmuka digital berstandar enterprise yang dirancang untuk memperkuat employer branding perusahaan teknologi terkemuka. Menampilkan budaya kerja kolaboratif, nilai-nilai perusahaan, serta statistik kredibilitas organisasi (120+ Talenta Global di 18+ negara, 98.4% tingkat retensi karyawan, 5M+ pengguna aktif, dan rating Glassdoor 4.9/5). Dilengkapi sistem eksplorasi lowongan pekerjaan interaktif dengan filter posisi, departemen, dan lokasi kerja, form pengajuan lamaran online yang intuitif, serta desain modern dan performa tinggi.",
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion", "Lucide React"],
+    image: "/images/jobhunter.png",
+    githubLink: "https://github.com/ArifuddinJ/technova-career-portal",
+    demoLink: "https://technova-career.dev",
+    displayUrl: "TECHNOVA-CAREER.DEV",
+    metrics: [
+      { label: "Glassdoor Score", value: "4.9 / 5.0" },
+      { label: "Talenta Global", value: "120+ Orang" },
+      { label: "Tingkat Retensi", value: "98.4%" },
+      { label: "Pengguna Aktif", value: "5M+ Users" },
+    ],
+    highlights: [
+      "Desain antarmuka karier modern, estetis, dan clean untuk memperkuat employer branding",
+      "Penyajian metrik statistik perusahaan terpercaya (Talenta Global, Retensi, Active Users, Glassdoor)",
+      "Sistem pencarian dan filter lowongan kerja interaktif berdasarkan posisi dan departemen",
+      "Formulir pendaftaran karier online responsif dengan animasi transisi yang halus dan cepat",
     ],
   },
 ];
 
-// Project Card Component with Fast, Native CSS Hover Transitions
+const categories = [
+  "Semua",
+  "Web Development",
+  "Machine Learning / AI",
+  "Sistem Kasir & POS",
+  "EdTech & Edukasi",
+];
+
+// Project Card Component
 function ProjectCard({ project, onClick }: { project: Project; onClick: () => void }) {
   return (
     <div
@@ -138,13 +199,13 @@ function ProjectCard({ project, onClick }: { project: Project; onClick: () => vo
       onClick={onClick}
     >
       {/* Thumbnail */}
-      <div className="relative w-full h-48 md:h-56 overflow-hidden">
+      <div className="relative w-full h-48 md:h-52 overflow-hidden bg-black/40">
         <Image
           src={project.image}
           alt={project.title}
           fill
-          sizes="(max-width: 768px) 100vw, 50vw"
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
         />
 
         {/* Glow overlay */}
@@ -152,39 +213,47 @@ function ProjectCard({ project, onClick }: { project: Project; onClick: () => vo
 
         {/* Hover preview eye button overlay */}
         <div className="absolute inset-0 flex items-center justify-center bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div className="p-4 rounded-full bg-gradient-to-r from-primary to-primary-light text-white shadow-lg flex items-center gap-2">
-            <Eye className="w-5 h-5" />
+          <div className="p-3.5 px-4 rounded-full bg-gradient-to-r from-primary to-primary-light text-white shadow-lg flex items-center gap-2">
+            <Eye className="w-4 h-4" />
             <span className="text-xs font-bold font-sans">Lihat Detail</span>
           </div>
         </div>
 
         {/* Category Badge */}
-        <span className="absolute top-4 left-4 px-3.5 py-1 rounded-full text-[10px] font-bold font-sans tracking-wide uppercase bg-black/60 backdrop-blur-md border border-white/10 text-secondary">
+        <span className="absolute top-4 left-4 px-3 py-1 rounded-full text-[10px] font-bold font-sans tracking-wide uppercase bg-black/70 backdrop-blur-md border border-white/10 text-secondary">
           {project.category}
         </span>
       </div>
 
       {/* Content */}
-      <div className="p-6 flex flex-col flex-grow">
-        <h4 className="text-lg md:text-xl font-bold font-sans text-white group-hover:text-secondary transition-colors duration-300 line-clamp-1 mb-2">
+      <div className="p-5 md:p-6 flex flex-col flex-grow">
+        <h4 className="text-lg font-bold font-sans text-white group-hover:text-secondary transition-colors duration-300 line-clamp-2 mb-2 min-h-[3.25rem]">
           {project.title}
         </h4>
-        <p className="text-sm text-gray-400 font-sans leading-relaxed line-clamp-3 mb-6">
+        <p className="text-xs md:text-sm text-gray-400 font-sans leading-relaxed line-clamp-3 mb-4">
           {project.description}
         </p>
 
+        {/* Display URL indicator */}
+        <div className="flex items-center gap-1.5 text-[11px] font-mono text-gray-400 group-hover:text-secondary transition-colors mb-4 pt-1">
+          <Globe className="w-3.5 h-3.5 shrink-0" />
+          <span className="truncate tracking-wider font-semibold">
+            {project.displayUrl || project.demoLink.replace(/^https?:\/\//, "").toUpperCase()}
+          </span>
+        </div>
+
         {/* Technologies list */}
-        <div className="flex flex-wrap gap-1.5 mt-auto">
+        <div className="flex flex-wrap gap-1.5 mt-auto pt-2 border-t border-white/5">
           {project.technologies.slice(0, 4).map((tech) => (
             <span
               key={tech}
-              className="text-[10px] font-mono text-gray-500 bg-white/5 px-2.5 py-1 rounded-md"
+              className="text-[10px] font-mono text-gray-400 bg-white/5 px-2.5 py-1 rounded-md border border-white/5"
             >
               {tech}
             </span>
           ))}
           {project.technologies.length > 4 && (
-            <span className="text-[10px] font-mono text-gray-600 bg-white/5 px-2 py-1 rounded-md">
+            <span className="text-[10px] font-mono text-secondary/80 bg-secondary/10 px-2 py-1 rounded-md border border-secondary/20">
               +{project.technologies.length - 4}
             </span>
           )}
@@ -196,13 +265,20 @@ function ProjectCard({ project, onClick }: { project: Project; onClick: () => vo
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [activeCategory, setActiveCategory] = useState<string>("Semua");
   const [activeTab, setActiveTab] = useState<"detail" | "tech">("detail");
   const [copied, setCopied] = useState(false);
   const [imgError, setImgError] = useState(false);
 
-  // Find index of selected project
+  // Filtered projects list based on active category tab
+  const filteredProjects = activeCategory === "Semua"
+    ? projects
+    : projects.filter((p) => p.category === activeCategory);
+
+  // Find index of selected project in active list or all projects
+  const activeList = filteredProjects.length > 0 ? filteredProjects : projects;
   const currentIndex = selectedProject
-    ? projects.findIndex((p) => p.id === selectedProject.id)
+    ? activeList.findIndex((p) => p.id === selectedProject.id)
     : -1;
 
   const handleSelectProject = (project: Project) => {
@@ -215,15 +291,15 @@ export default function Projects() {
   const handlePrevProject = (e?: React.MouseEvent) => {
     e?.stopPropagation();
     if (currentIndex === -1) return;
-    const prevIndex = (currentIndex - 1 + projects.length) % projects.length;
-    handleSelectProject(projects[prevIndex]);
+    const prevIndex = (currentIndex - 1 + activeList.length) % activeList.length;
+    handleSelectProject(activeList[prevIndex]);
   };
 
   const handleNextProject = (e?: React.MouseEvent) => {
     e?.stopPropagation();
     if (currentIndex === -1) return;
-    const nextIndex = (currentIndex + 1) % projects.length;
-    handleSelectProject(projects[nextIndex]);
+    const nextIndex = (currentIndex + 1) % activeList.length;
+    handleSelectProject(activeList[nextIndex]);
   };
 
   const handleCopyLink = (e?: React.MouseEvent) => {
@@ -257,17 +333,17 @@ export default function Projects() {
       if (e.key === "Escape") {
         setSelectedProject(null);
       } else if (e.key === "ArrowLeft") {
-        const prevIndex = (currentIndex - 1 + projects.length) % projects.length;
-        handleSelectProject(projects[prevIndex]);
+        const prevIndex = (currentIndex - 1 + activeList.length) % activeList.length;
+        handleSelectProject(activeList[prevIndex]);
       } else if (e.key === "ArrowRight") {
-        const nextIndex = (currentIndex + 1) % projects.length;
-        handleSelectProject(projects[nextIndex]);
+        const nextIndex = (currentIndex + 1) % activeList.length;
+        handleSelectProject(activeList[nextIndex]);
       }
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [selectedProject, currentIndex]);
+  }, [selectedProject, currentIndex, activeList]);
 
   return (
     <section id="projects" className="relative w-full py-24 px-6 bg-background/50">
@@ -277,19 +353,43 @@ export default function Projects() {
 
       <div className="max-w-7xl mx-auto z-10 relative">
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center mb-16">
+        <div className="flex flex-col items-center text-center mb-12 md:mb-16">
           <h2 className="text-xs font-mono uppercase tracking-widest text-secondary mb-3 flex items-center gap-1.5">
             <FolderGit2 className="w-4 h-4" />
-            <span>04 . Proyek Unggulan</span>
+            <span>04 . Hasil Karya & Proyek Unggulan</span>
           </h2>
-          <h3 className="text-3xl md:text-5xl font-black font-sans tracking-tight">
-            Karya & <span className="text-gradient-primary">Inovasi Digital</span>
+          <h3 className="text-3xl md:text-5xl font-black font-sans tracking-tight mb-4">
+            Hasil Karya & <span className="text-gradient-primary">Inovasi Digital</span>
           </h3>
+          <p className="max-w-3xl text-sm md:text-base text-gray-400 font-sans leading-relaxed">
+            Berikut adalah beberapa proyek pengembangan sistem informasi dan aplikasi web yang telah saya rancang serta bangun untuk membantu digitalisasi bisnis, retail, dan organisasi secara modern dan responsif.
+          </p>
+        </div>
+
+        {/* Category Filters */}
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
+          {categories.map((cat) => {
+            const count = cat === "Semua" ? projects.length : projects.filter((p) => p.category === cat).length;
+            const isActive = activeCategory === cat;
+            return (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`px-4 py-2 rounded-full text-xs font-medium font-mono transition-all duration-200 border ${
+                  isActive
+                    ? "bg-gradient-to-r from-primary to-primary-light text-white border-transparent shadow-lg shadow-primary/20"
+                    : "bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white border-white/5"
+                }`}
+              >
+                {cat} <span className="opacity-70 text-[10px]">({count})</span>
+              </button>
+            );
+          })}
         </div>
 
         {/* Grid Projects */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((project) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {filteredProjects.map((project) => (
             <ProjectCard
               key={project.id}
               project={project}
@@ -331,7 +431,7 @@ export default function Projects() {
                     {selectedProject.category}
                   </span>
                   <span className="text-xs font-mono text-gray-500 hidden sm:inline-block">
-                    Proyek {String(currentIndex + 1).padStart(2, "0")} dari {String(projects.length).padStart(2, "0")}
+                    Proyek {String(currentIndex + 1).padStart(2, "0")} dari {String(activeList.length).padStart(2, "0")}
                   </span>
                 </div>
 
@@ -410,7 +510,7 @@ export default function Projects() {
                             src={selectedProject.image}
                             alt={selectedProject.title}
                             fill
-                            className="object-cover transition-transform duration-500 group-hover:scale-105"
+                            className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                             onError={() => setImgError(true)}
                           />
                         ) : (
@@ -588,7 +688,7 @@ export default function Projects() {
               <div className="px-5 md:px-8 py-3.5 border-t border-white/10 bg-white/[0.02] flex items-center justify-between shrink-0 gap-4">
                 {/* Dots indicator */}
                 <div className="flex items-center gap-2">
-                  {projects.map((p, idx) => (
+                  {activeList.map((p, idx) => (
                     <button
                       key={p.id}
                       onClick={() => handleSelectProject(p)}
